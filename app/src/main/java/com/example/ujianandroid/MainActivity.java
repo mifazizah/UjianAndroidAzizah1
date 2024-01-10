@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText edNamaDepan = (EditText) findViewById(R.id.edNamaDepan);
         EditText edNamaBelakang = (EditText) findViewById(R.id.edNamaBelakang);
+        EditText edUmur = (EditText) findViewById(R.id.edUmur);
         Button btnSimpan = (Button) findViewById(R.id.btnSimpan);
 
         ArrayList<String> daftar_nama = new ArrayList<>();
@@ -43,6 +44,16 @@ public class MainActivity extends AppCompatActivity {
                     intent_list.putStringArrayListExtra("daftar_nama", daftar_nama);
                     startActivity(intent_list);
                 }
+            }
+            inputUmur = Integer.parseInt(((EditText) edUmur).getText().toString());
+                    if(inputUmur <=10) {
+                edUmur.setText("Status:anak");
+            }else if (inputUmur<20){
+                edUmur.setText("Status:remaja");
+            }else if (inputUmur<40){
+                edUmur.setText("Status:dewasa");
+            }else if (inputUmur>40){
+                edUmur.setText("Status:tua");
             }
         });
     }
